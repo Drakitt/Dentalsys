@@ -1,0 +1,84 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+// Estilos generales del navbar
+.navbar {
+  background-color: #3498db; // Cambia esto al color que prefieras
+  padding: 15px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // Estilos para los enlaces en el navbar
+  a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+
+    // Cambia el color al pasar el ratón sobre el enlace
+    &:hover {
+      color: #ecf0f1;
+    }
+  }
+}
+
+// Estilos para el logotipo en el navbar
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+// Estilos para el menú desplegable (si es necesario)
+.dropdown {
+  position: relative;
+
+  // Estilos para el botón del menú desplegable
+  .dropdown-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+
+    // Cambia el color al pasar el ratón sobre el botón
+    &:hover {
+      color: #ecf0f1;
+    }
+  }
+
+  // Estilos para la lista de opciones del menú desplegable
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3498db; // Cambia esto al color que prefieras
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    // Estilos para cada opción en el menú desplegable
+    a {
+      color: #fff;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+
+      // Cambia el color al pasar el ratón sobre la opción
+      &:hover {
+        background-color: #2980b9; // Cambia esto al color que prefieras
+      }
+    }
+  }
+
+  // Mostrar la lista de opciones al pasar el ratón sobre el botón
+  &:hover .dropdown-content {
+    display: block;
+  }
+}
