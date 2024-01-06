@@ -15,8 +15,8 @@ import { MatTableModule } from '@angular/material/table'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { NgtCanvas, NgtArgs, NgtStore } from 'angular-three';
-import { OrbitControls } from 'three-stdlib';
+// import { NgtCanvas, NgtArgs, NgtStore } from 'angular-three';
+// import { OrbitControls } from 'three-stdlib';
 
 
 
@@ -26,7 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { AdminLayoutModule } from '../layout/admin-layout/admin-layout.module';
 import { MatListModule } from '@angular/material/list';
-import { ModelComponent } from './model/model.component';
+// import { ModelComponent } from './model/model.component';
 import { DentitionComponent } from './dentition/dentition.component';
 // import { SceneComponent } from './scene/scene.component';
 
@@ -47,14 +47,14 @@ import { DentitionComponent } from './dentition/dentition.component';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
-    NgtCanvas,
-    NgtArgs
+    // NgtCanvas,
+    // NgtArgs
   ],
   declarations: [
     SlidebarComponent,
     NavbarComponent,
     TableListComponent,
-    ModelComponent,
+    // ModelComponent,
     DentitionComponent,
     // SceneComponent
   ],
@@ -62,11 +62,11 @@ import { DentitionComponent } from './dentition/dentition.component';
     SlidebarComponent,
     NavbarComponent,
     TableListComponent,
-    ModelComponent,
+    // ModelComponent,
     DentitionComponent,
     // SceneComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [NgtStore]
+  providers: []
 })
 export class ComponentsModule { }

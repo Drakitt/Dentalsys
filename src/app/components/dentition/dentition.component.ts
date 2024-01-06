@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { Scene } from 'three/src/Three';
-import { ModelComponent } from '../model/model.component';
+// import { ModelComponent } from '../model/model.component';
 
 @Component({
   selector: 'app-dentition',
@@ -9,6 +9,6 @@ import { ModelComponent } from '../model/model.component';
   styleUrl: './dentition.component.scss'
 })
 export class DentitionComponent {
-  readonly Scene = ModelComponent;
+  // readonly Scene = ModelComponent;
 
 }
