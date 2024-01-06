@@ -34,6 +34,7 @@ export class SlidebarComponent implements OnDestroy {
   icon: boolean = true;
 
   ngOnInit(): void {
+    //kkk
     this.menuItems = ROUTES.filter(menuItem => menuItem);
 
   }
