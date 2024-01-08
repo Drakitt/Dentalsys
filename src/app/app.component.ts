@@ -5,8 +5,9 @@ import { ComponentsModule } from './components/components.module';
 import { AdminLayoutModule } from './layout/admin-layout/admin-layout.module';
 import { PacienteService } from './pacientes/services/paciente.service';
 import { DentistaService } from './dentistas/services/dentista.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './core/services/interceptor.service';
 // import { NgtCanvas } from 'angular-three';
 
 
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     // NgtCanvas
   ],
-  providers:[PacienteService,DentistaService],
+  providers:[PacienteService,DentistaService
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

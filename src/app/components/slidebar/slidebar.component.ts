@@ -1,7 +1,9 @@
-import { Component, OnInit, Inject, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectorRef, OnDestroy, PLATFORM_ID } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { AuthService } from '../../core/services/auth.services';
+import { Subscription, switchMap, interval, Observable, map  } from 'rxjs';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -28,16 +30,12 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./slidebar.component.scss']
 })
 export class SlidebarComponent implements OnDestroy {
-
+  private isLoggedInSubscription!: Subscription;
   menuItems!: any[];
   mobileQuery: any;
   icon: boolean = true;
-
-  ngOnInit(): void {
-    //kkk
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
-
-  }
+  isLoggedIn: boolean = false;
+someObserver!: Observable<boolean>;
   showFiller = false;
   isMobileMenu() {
     if ($(window).width() > 991) {
@@ -45,14 +43,28 @@ export class SlidebarComponent implements OnDestroy {
     }
     return true;
   };
+  isAuth:any;
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private authService:AuthService) {
+
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
+  ngOnInit(): void {
+    //for version 17
+    this.isLoggedInSubscription = this.authService.isLoggedIn$.pipe(
+      map(isLoggedIn => {
+        if (isLoggedIn === true) {
+          this.isLoggedIn = isLoggedIn;
+        }
+        return isLoggedIn;
+      })
+    ).subscribe();
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
 
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
